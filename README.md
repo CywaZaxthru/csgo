@@ -10,6 +10,12 @@ Faceit_API_KEY = {your Key}
 
 Steam_API_KEY = {your Key}
 
+# APIs:
+
+Faceit: https://developers.faceit.com/docs/tools/data-api
+
+Steam Iuser: https://partner.steamgames.com/doc/webapi/ISteamUser
+
 # Code Documentation:
 
 src: React development files
@@ -41,9 +47,3 @@ index.js: Entry Point for Server, Routing Requests
 APIhandler.js: Calls APIs by calling APIcallers which then call specific endpoints, returns data in array where each element stands for an API result which is an array of results of API calls to that API.
 
 build: React Frontend Application packed by Webpack
-
-# APIs:
-
-Faceit: https://developers.faceit.com/docs/tools/data-api
-
-Steam Iuser: https://partner.steamgames.com/doc/webapi/ISteamUser
