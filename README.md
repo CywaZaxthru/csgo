@@ -1,6 +1,14 @@
-Goal: Website where user puts in a Steam ID and Counter-Strike related statistics of that account are displayed
+# Goal 
 
-Code Documentation:
+Website where user puts in a Steam ID and Counter-Strike related statistics of that account are displayed
+
+# API Keys
+
+Create your own inside a .env file in the same directory as APIhandler.js.
+Faceit_API_KEY = {your Key}
+Steam_API_KEY = {your Key}
+
+# Code Documentation:
 
 Frontend: Folder containing React development files
     - public: standard React html page and favicon
