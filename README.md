@@ -34,7 +34,9 @@ Form.js: React file for Form element and controlled Input, Submitting calls Back
 
 Databox.js: Iterates over all available API results and creates a DataTable for each API, passes that APIs response as props to DataTable
 
-DataTable.js: goes through different API calls' reponses and loads desired Data, and Elo.js
+DataTable.js: goes through different API calls' reponses and loads Faceit or default component
+
+Faceit.js displays Faceit Data, loads Elo. Serves as default component during development 
 
 Elo.js: loads Elo and skill level image
 
