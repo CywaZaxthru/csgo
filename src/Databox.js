@@ -10,13 +10,17 @@ function Databox(props){
                     text = "Faceit";
                     break;
                 }
+                case 1:{
+                    text = "Esportal";
+                    break;
+                }
                 default: {
                     text = "Unbekannte API"
                 }
             }
             return(
                 <div key={text}>
-                    <DataTable dataset={element}/>
+                    <DataTable dataset={element} API={text}/>
                 </div>   
             )
         })
