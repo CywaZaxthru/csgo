@@ -4,8 +4,10 @@ Website where user puts in a Steam ID and Counter-Strike related statistics of t
 
 # API Keys
 
-Create your own inside a .env file in the same directory as APIhandler.js.
+Put your own inside a .env file in the same directory as APIhandler.js.
+
 Faceit_API_KEY = {your Key}
+
 Steam_API_KEY = {your Key}
 
 # Code Documentation:
@@ -29,6 +31,8 @@ Backend: Node.js Application
     - APIhandler.js: Calls APIs by calling APIcallers which then call specific endpoints, returns data in array where each element stands for an API result which is an array of results of API calls to that API.
     - build: React Frontend Application packed by Webpack
 
-APIs:
-    - Faceit: https://developers.faceit.com/docs/tools/data-api
-    - Steam Iuser: https://partner.steamgames.com/doc/webapi/ISteamUser
+# APIs:
+
+Faceit: https://developers.faceit.com/docs/tools/data-api
+
+Steam Iuser: https://partner.steamgames.com/doc/webapi/ISteamUser
