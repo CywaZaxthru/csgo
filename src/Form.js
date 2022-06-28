@@ -21,7 +21,6 @@ function Form(props){
                 link = link.replace(element, "")
             }
         })
-        /*Next line to remove "/" at the end of link*/
         link = link.replace("/", "") 
         return link
     }
@@ -31,8 +30,8 @@ function Form(props){
         let id = cutData(text)
         let userData = await requestData(id);
         setText("");
-        if(userData[0][0]["errors"]){
-            let errors = userData[0][0]["errors"].map(element => element["message"])
+        if(userData.Error){
+            let errors = userData.Error.map(element => element.meaning)
             props.setMainState(["ERROR", errors])
         } else{
             props.setMainState(userData)

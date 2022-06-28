@@ -1,28 +1,16 @@
 import DataTable from './DataTable'
 
 function Databox(props){
-    const keys = props.data
-    let text
+    const keys = Object.keys(props.data)
     return(
-        keys.map((element, index) => {
-            switch(index){
-                case 0:{
-                    text = "Faceit";
-                    break;
-                }
-                case 1:{
-                    text = "Esportal";
-                    break;
-                }
-                default: {
-                    text = "Unbekannte API"
-                }
+        keys.map((element) => {
+            if(element !== "ID64" && element !== "ID32"){
+                return(
+                    <div key={element}>
+                        <DataTable dataset={props.data[element]} title={element}/>
+                    </div>  
+                )
             }
-            return(
-                <div key={text}>
-                    <DataTable dataset={element} API={text}/>
-                </div>   
-            )
         })
     )
 }

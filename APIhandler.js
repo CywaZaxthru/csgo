@@ -1,28 +1,65 @@
-const fetch = require('node-fetch');
 require('dotenv').config()
+
+const fetch = require('node-fetch');
+const faceit = require('./faceitAPI')
+const esportal = require('./esportalAPI');
+const { useSyncExternalStore } = require('react');
 
 async function APIcaller(query){
     const ID = query["account"];
-    let faceitData = await callFaceit(ID)
-    return [faceitData, faceitData, faceitData]
-};
-
-async function callFaceit(id){
-    const KEY = process.env.Faceit_API_KEY;
-    let configuration = {
-        method: "GET",
-        headers: {
-            "Authorization": "Bearer " + KEY
+    const user = {}
+    if(!/^[0-9]+$/.test(ID)){
+        try {
+            user.ID64 = await getSteamId(ID)
         }
+        catch(err){
+            user.Error = []
+            user.Error.push({
+                APIresponse: err,
+                meaning: "Couldn't get Steam ID64 or wrong input"
+            })
+            return user
+        }
+    } else{
+        user.ID64 = ID
     }
-    if(!/^[0-9]+$/.test(id)){
-        id = await getSteamId(id)
+    try{
+        user.ID32 = Number(user.ID64.substr(-16,16)) - 6561197960265728
     }
-    let players = await callPlayers(id, configuration)
-    let player_id = players["player_id"]
-    let stats = await callStats(player_id, configuration)
-    return [players, stats]
-}
+    catch(err) { 
+        if(!user.Error){
+            user.Error = []
+        }
+        user.Error.push({
+            meaning: "Couldn't get Steam ID32 or wrong input"
+        })
+    }
+    try{
+        user.Faceit = await faceit.call(user.ID64)
+    }
+    catch(err){
+        if(!user.Error){
+            user.Error = []
+        }
+        user.Error.push({
+            APIresponse: err,
+            meaning: "Couldn't reach Faceit API or wrong input"
+        })
+    }
+    try{
+        user.Esportal = await esportal.call(user.ID32)
+    }
+    catch(err){
+        if(!user.Error){
+            user.Error = []
+        }
+        user.Error.push({
+            APIresponse: err,
+            meaning: "Couldn't reach Esportal API or wrong input"
+        })
+    }
+    return user
+};
 
 async function getSteamId(vanityUrlName){
     const KEY = process.env.Steam_API_KEY;
@@ -30,26 +67,6 @@ async function getSteamId(vanityUrlName){
     const response = await fetch(URL)
     .then(res => res.json())
     return response["response"]["steamid"]
-}
-
-async function callPlayers(id, configuration){
-    const URL = `https://open.faceit.com/data/v4/players?game=csgo&game_player_id=${id}`;
-    const response = await fetch(URL, configuration)
-    .then(res => res.json())
-    return response
-}
-
-async function callStats(id, configuration){
-    let URL = `https://open.faceit.com/data/v4/players/${id}/stats/csgo`
-    const response = await fetch(URL, configuration)
-    .then(res => res.json())
-    return response
-}
-
-async function callFaceitAPI(configuration, URL){
-    const response = await fetch(URL, configuration)
-    .then(res => res.json())
-    return response
 }
 
 exports.caller = APIcaller;
