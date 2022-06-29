@@ -25,7 +25,8 @@ async function callPlayers(id, configuration) {
                 faceit_elo: res["games"]["csgo"]["faceit_elo"],
                 faceit_url: res["faceit_url"].replace("{lang}", "en"),
                 game_player_name: res["games"]["csgo"]["game_player_name"],
-                nickname: res["nickname"]
+                nickname: res["nickname"],
+                SteamName: res["games"]["csgo"]["game_player_name"]
             })
         })
     return response

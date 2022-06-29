@@ -1,5 +1,6 @@
 import Faceit from './Faceit'
 import Esportal from './Esportal'
+import Steam from './Steam'
 
 function DataTable(props){
     if(props.title === "Faceit"){
@@ -14,6 +15,13 @@ function DataTable(props){
             <>
                 <h1>Esportal</h1>
                 <Esportal data={props.dataset}/>
+            </>
+        )
+    } else if(props.title === "Steam"){
+        return(
+            <>
+                <h1>Steam</h1>
+                <Steam data={props.dataset}/>
             </>
         )
     }
