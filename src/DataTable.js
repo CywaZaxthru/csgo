@@ -6,21 +6,23 @@ function DataTable(props){
     if(props.title === "Faceit"){
         return(
             <>
-                <h1>Faceit</h1>
+                <h1 className='dataTable-head text-center'>Faceit</h1>
                 <Faceit data={props.dataset}/>
             </>
         )
     } else if(props.title === "Esportal"){
         return(
             <>
-                <h1>Esportal</h1>
+                <h1 className='dataTable-head text-center'>Esportal</h1>
+                <hr />
                 <Esportal data={props.dataset}/>
             </>
         )
     } else if(props.title === "Steam"){
         return(
             <>
-                <h1>Steam</h1>
+                <h1 className='dataTable-head text-center'>Steam</h1>
+                <hr />
                 <Steam data={props.dataset}/>
             </>
         )

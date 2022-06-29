@@ -44,10 +44,10 @@ function Form(props){
                         <label htmlFor="url-input"></label> 
                         <input placeholder="Steam ID 64/Steam Profile URL/Steam ID URL" type="text" id="url-input" name="account" onChange={(e) => {
                         setText(e.target.value)
-                        }} value={text}></input>
+                        }} value={text} className="border border-dark border-3 rounded-pill rounded-4 "></input>
                     </div>
                     <div className='col-auto text-end form-group mb-3' id="button-div">
-                        <button type="submit" id="submit" >Suche</button>
+                        <button type="submit" id="submit" className='border border-dark rounded-pill rounded-4 border-3'><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </fieldset>
         </form>

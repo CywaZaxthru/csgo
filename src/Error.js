@@ -3,7 +3,7 @@ function Error(props){
         props["errors"].map(element => {
             return(
                 <div key={element}>
-                    <p>{element}</p>
+                    <p className="text-center error">ERROR: {element}</p>
                 </div>
             )
         })
