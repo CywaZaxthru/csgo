@@ -1,4 +1,3 @@
-import './styles.css';
 import { useState } from 'react';
 
 function Form(props){
@@ -39,13 +38,17 @@ function Form(props){
     }
 
     return(
-        <form className="container-fluid d-flex justify-content-center" onSubmit={(e) => Submitfunction(e)}>
-                <fieldset>
-                    <label htmlFor="url/input"></label> 
-                    <input placeholder="Steam ID 64/Steam Profile URL/Steam ID URL" type="text" id="url-input"  className='border border-dark border-2 rounded-3' name="account" onChange={(e) => {
+        <form onSubmit={(e) => Submitfunction(e)} className="d-flex align-items-center">
+                <fieldset className='d-flex align-items-center'>
+                    <div className='col-sm form-group mb-3'>
+                        <label htmlFor="url-input"></label> 
+                        <input placeholder="Steam ID 64/Steam Profile URL/Steam ID URL" type="text" id="url-input" name="account" onChange={(e) => {
                         setText(e.target.value)
-                    }} value={text}></input>
-                    <button type="submit" className='btn btn-dark btn-sm rounded-3 border-2' id="submit">Suche</button>
+                        }} value={text}></input>
+                    </div>
+                    <div className='col-auto text-end form-group mb-3' id="button-div">
+                        <button type="submit" id="submit" >Suche</button>
+                    </div>
                 </fieldset>
         </form>
     )

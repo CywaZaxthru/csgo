@@ -5,7 +5,7 @@ function Databox(props){
     return(
         keys.map((element) => {
             return(
-                <div key={element}>
+                <div key={element} className="DataTable-margin">
                     <DataTable dataset={props.data[element]} title={element}/>
                 </div>  
             )

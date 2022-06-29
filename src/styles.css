@@ -1,59 +1,25 @@
-html, body{
-    height: 100%
-}
-
-#root{
-    height: 100%;
-}
-
-#box{
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-}
-
 main{
-    flex: 1 1 auto;
+    height: 100vh;
 }
 
-fieldset{
-    margin-top: 0.8em;
-}
-
-button{
-    margin-left: 0.5em;
-    margin-bottom: 0.2em;
-    width: 80px;
+#button-div{
+    margin-left: 0.7em;
 }
 
 input{
-    width: 450px;
+    width: 25em;
 }
 
-#submit{
-    font-size: medium;
-}
-
-#data{
-    margin-top: 20px;
-}
-
-.table{
-    padding: 10px;
+a{
+    color: black;
 }
 
 img{
-    height: 24px;
+    width: 30px;
 }
 
-@media only screen and (max-width: 600px){
-   input{
-    width: auto;
-   }
-   button{
-    width: auto;
-   }
-   #data{
-    flex-direction: column;
-   }
+.DataTable-margin{
+    margin-left: 10em;
+    margin-right: 10em;
+    margin-top: 1em;
 }

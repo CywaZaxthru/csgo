@@ -1,4 +1,4 @@
-import './styles.css';
+import './styles.css'
 import Form from './Form';
 import Databox from './Databox';
 import Error from './Error';
@@ -10,24 +10,59 @@ function Main(){
 
     if(mainState[0] === "ERROR"){
       return(
-        <main className="container-fluid position-relative d-flex flex-column justify-content-evenly">
-          <Form setMainState={setMainState} className="align-self-start"/>
-          <Error errors={mainState[1]}/>
+        <main  className='d-xl-flex justify-content-xl-center'>
+            <div>
+                <h1 className='text-center'>Counterstrike Player Finder</h1>
+                <div className='container'>
+                        <div className='row'>
+                        <div className='d-flex justify-content-center'>
+                                <Form setMainState={setMainState}/> 
+                            </div>
+                        </div>
+                    </div>
+                <div>
+                    <Error errors={mainState[1]}/>
+                </div>
+            </div>
         </main>
       )
     }else if(Object.keys(mainState).length > 0){
         return(
-            <main className="container-fluid position-relative d-flex flex-column justify-content-evenly">
-                <Form setMainState={setMainState} className=""/>
-                    <div id="data" className="d-flex justify-content-around" i="inner-data-div">
-                        <Databox data={mainState} />
+            <>
+                <main className='d-xl-flex justify-content-xl-center align-items-center'>
+                    <div>
+                        <h1 className='text-center'>Counterstrike Player Finder</h1>
+                        <div className='container'>
+                            <div className='row'>
+                                <div className='d-flex justify-content-center'>
+                                    <Form setMainState={setMainState}/> 
+                                </div>
+                            </div>
+                        </div>
+                        <div className='d-flex flex-column justify-content-center' id="data-div">
+                            <div className='row'>
+                                <div className='d-flex justify-content-evenly'>
+                                    <Databox data={mainState}/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-            </main>
+                </main>
+            </>
         )
     }else{
         return(
-            <main className="container-fluid position-relative d-flex flex-column">
-                <Form setMainState={setMainState} className="align-self-start"/>
+            <main className='d-xl-flex justify-content-xl-center align-items-xl-center'>
+                <div>
+                    <h1 className='text-center'>Counterstrike Player Finder</h1>
+                    <div className='container'>
+                        <div className='row'>
+                            <div className='d-flex justify-content-center'>
+                                <Form setMainState={setMainState}/> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
         )
     }

@@ -2,9 +2,9 @@ function Error(props){
     return( 
         props["errors"].map(element => {
             return(
-                <>
-                    <p className="text-center">{element}</p>
-                </>
+                <div key={element}>
+                    <p>{element}</p>
+                </div>
             )
         })
     )

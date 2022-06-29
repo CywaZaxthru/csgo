@@ -1,2 +1,0 @@
-#box,#root,body,html{height:100%}#box{display:flex;flex-direction:column}main{flex:1 1 auto}fieldset{margin-top:.8em}button{margin-bottom:.2em;margin-left:.5em;width:80px}input{width:450px}#submit{font-size:medium}#data{margin-top:20px}.table{padding:10px}img{height:24px}@media only screen and (max-width:600px){button,input{width:auto}#data{flex-direction:column}}
-/*# sourceMappingURL=main.21af0135.css.map*/
