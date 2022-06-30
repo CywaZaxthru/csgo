@@ -99,6 +99,14 @@ span{
     width: 100%;
 }
 
+.fa-thumbs-up{
+    color: green;
+}
+
+.fa-thumbs-down{
+    color: red;
+}
+
 @media(max-width: 600px){
     h1{
         text-align: center;

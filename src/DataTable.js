@@ -21,7 +21,7 @@ function DataTable(props){
     } else if(props.title === "Steam"){
         return(
             <>
-                <h1 className='dataTable-head text-center'>Steam</h1>
+                <h1 className='dataTable-head text-center'>Matchmaking</h1>
                 <hr />
                 <Steam data={props.dataset}/>
             </>

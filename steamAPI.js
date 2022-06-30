@@ -47,7 +47,6 @@ async function getStats(id){
                 case "total_matches_played":{
                     matches = element["value"]
                 }
-
             }
         })
         return({
