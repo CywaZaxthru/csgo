@@ -26,6 +26,7 @@ img{
     margin-left: 10em;
     margin-right: 10em;
     margin-top: 1em;
+    height: 400px;
 }
 
 #box{
@@ -37,8 +38,11 @@ img{
 }
 
 h1{
-    color: rgb(189, 83, 83);
+    color: white;
     font-weight: 500;
+}
+
+.shadow{
     text-shadow: 5px 5px 5px black;
 }
 
@@ -97,11 +101,6 @@ a{
     bottom: 5px;
 }
 
-#faceit{
-    position: static;
-    padding-top: 50px;
-}
-
 span{
     width: 100%;
 }
@@ -120,4 +119,8 @@ span{
 
 .fa-magnifying-glass:hover{
     color: rgba(255, 255, 255, 1)
+}
+
+.esportal-div{
+    padding-bottom: 5px;;
 }

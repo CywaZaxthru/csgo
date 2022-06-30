@@ -6,8 +6,7 @@ const esportal = require('./esportalAPI');
 const steam = require('./steamAPI');
 const { useSyncExternalStore } = require('react');
 
-async function APIcaller(query){
-    const ID = query["account"];
+async function APIcaller(ID){
     const user = {}
     try {
         user.Steam  = await steam.call(ID)

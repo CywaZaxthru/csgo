@@ -54,7 +54,7 @@ function Main(){
         return(
             <main className='d-xl-flex justify-content-xl-center align-items-xl-center'>
                 <div>
-                    <h1 className='text-center dark-shadow'>Counterstrike Player Finder</h1>
+                    <h1 className='text-center shadow'>Counterstrike Player Finder</h1>
                     <div className='container'>
                         <div className='row'>
                             <div className='d-flex justify-content-center'>

@@ -25,7 +25,7 @@ function Form(props){
     }
 
     async function Submitfunction(e){
-        e.preventDefault()
+        e.preventDefault();
         let id = cutData(text)
         let userData = await requestData(id);
         setText("");
@@ -36,7 +36,6 @@ function Form(props){
             props.setMainState(userData)
         }
     }
-
     return(
         <form onSubmit={(e) => Submitfunction(e)} className="d-flex align-items-center">
                 <fieldset className='d-flex align-items-center'>

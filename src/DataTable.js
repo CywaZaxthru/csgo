@@ -7,6 +7,7 @@ function DataTable(props){
         return(
             <>
                 <h1 className='dataTable-head text-center'>Faceit</h1>
+                <br />
                 <Faceit data={props.dataset}/>
             </>
         )
@@ -14,7 +15,8 @@ function DataTable(props){
         return(
             <>
                 <h1 className='dataTable-head text-center'>Esportal</h1>
-                <hr />
+                <br />
+                <br />
                 <Esportal data={props.dataset}/>
             </>
         )
@@ -22,7 +24,7 @@ function DataTable(props){
         return(
             <>
                 <h1 className='dataTable-head text-center'>Matchmaking</h1>
-                <hr />
+                <br />
                 <Steam data={props.dataset}/>
             </>
         )
