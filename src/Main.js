@@ -5,7 +5,7 @@ import Error from './Error';
 import { useState } from 'react';
 
 function Main(){
-    const initialState = [];
+    const initialState =[]
     const [mainState, setMainState] = useState(initialState);
 
     if(mainState[0] === "ERROR"){
@@ -54,7 +54,7 @@ function Main(){
         return(
             <main className='d-xl-flex justify-content-xl-center align-items-xl-center'>
                 <div>
-                    <h1 className='text-center'>Counterstrike Player Finder</h1>
+                    <h1 className='text-center dark-shadow'>Counterstrike Player Finder</h1>
                     <div className='container'>
                         <div className='row'>
                             <div className='d-flex justify-content-center'>

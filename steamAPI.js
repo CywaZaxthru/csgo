@@ -33,6 +33,7 @@ async function getStats(id){
         let deaths;
         let won;
         let matches;
+        let headshots
         res["playerstats"]["stats"].forEach(element => {
             switch(element["name"]){
                 case "total_kills":{
@@ -45,9 +46,15 @@ async function getStats(id){
                 }
                 case "total_matches_won":{
                     won = element["value"]
+                    break;
                 }
                 case "total_matches_played":{
                     matches = element["value"]
+                    break;
+                }
+                case "total_kills_headshot":{
+                    headshots = element["value"]
+                    break;
                 }
             }
         })
@@ -56,6 +63,7 @@ async function getStats(id){
             wr: Math.round((won/matches)*100)/100,
             matches: matches,
             frags: Math.round((kills/matches)*100)/100,
+            headshot_rate: Math.round((headshots/kills)*100)/100
         })
     })
     return response

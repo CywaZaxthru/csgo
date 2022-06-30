@@ -47,7 +47,9 @@ async function callStats(id, configuration) {
             return ({
                 matches: matches,
                 average_KD: (res["lifetime"]["Average K/D Ratio"]),
-                average_frags:  averageFrags
+                average_frags:  averageFrags,
+                wr: Math.round(parseInt(res["lifetime"]["Wins"]) / parseInt(res["lifetime"]["Matches"])*100)/100,
+                headshot_rate: res["lifetime"]["Average Headshots %"]
             })
         })
     return response
