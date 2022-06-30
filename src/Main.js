@@ -5,7 +5,7 @@ import Error from './Error';
 import { useState } from 'react';
 
 function Main(){
-    const initialState =[]
+    const initialState = []
     const [mainState, setMainState] = useState(initialState);
 
     if(mainState[0] === "ERROR"){
