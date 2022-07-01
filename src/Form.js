@@ -1,8 +1,18 @@
 import { useState } from 'react';
-
 function Form(props){
     const initialState = "";
     const [text, setText] = useState(initialState);
+
+    
+    if(props.data !== undefined){
+        Submitfunction(props.data)
+    }
+
+    async function Submitfunction(account){
+        let id = cutData(account)
+        let userData = await requestData(id);
+        props.setMainState(userData)
+    }
 
     async function requestData(userId){
         const URL =`/api?account=${userId}`; 
@@ -24,28 +34,25 @@ function Form(props){
         return link
     }
 
-    async function Submitfunction(e){
-        e.preventDefault();
-        let id = cutData(text)
-        let userData = await requestData(id);
-        setText("");
-        props.setMainState(userData)
-    }
+
+
     return(
         <>
-            <form onSubmit={(e) => Submitfunction(e)} className="d-flex align-items-center">
-                    <fieldset className='d-flex align-items-center'>
-                        <div className='col-sm form-group mb-3'>
-                            <label htmlFor="url-input"></label> 
+            <div className="d-flex align-items-center">
+                <fieldset className='d-flex align-items-center'>
+                    <div className='col-sm form-group mb-3'>
+                        <label htmlFor="url-input"></label> 
                             <input placeholder="Steam ID 64/Steam Profile URL/Steam ID URL" type="text" id="url-input" name="account" onChange={(e) => {
                             setText(e.target.value)
                             }} value={text} className="rounded-pill rounded-4"></input>
                         </div>
                         <div className='col-auto text-end form-group mb-3' id="button-div">
-                            <button type="submit" id="submit" className='rounded-pill rounded-4'><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <a href={`./answer?account=${text}`} className='search-link'>
+                                <div id="submit" className='rounded-pill rounded-4 button d-flex justify-content-center align-items-center'><i class="fa-solid fa-magnifying-glass"></i></div>
+                            </a>
                         </div>
                     </fieldset>
-            </form>
+            </div>   
         </>
     )
 }

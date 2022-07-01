@@ -23,3 +23,8 @@ app.get('/api', async (request, response) => {
     let answer = await APIhandler.caller(request.query.account);
     response.send(answer)
 })
+
+app.get('/answer', (request, response) => {
+    const pathToFile = path.join(__dirname, 'build', 'index.html');
+    response.sendFile(pathToFile);
+});

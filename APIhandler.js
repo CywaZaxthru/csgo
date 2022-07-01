@@ -7,6 +7,7 @@ const steam = require('./steamAPI');
 const { useSyncExternalStore } = require('react');
 
 async function APIcaller(ID){
+
     const user = {}
     user.Steam  = await steam.call(ID)
     if(!user.Steam.ID64){
