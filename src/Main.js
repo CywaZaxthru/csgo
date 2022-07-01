@@ -4,7 +4,7 @@ import Databox from './Databox';
 import { useState } from 'react';
 import Footer from './Footer'
 
-function Main(props){   
+function Main(){   
     const initialState =[]
     const [mainState, setMainState] = useState(initialState);
     if(Object.keys(mainState).length > 0){
@@ -16,7 +16,7 @@ function Main(props){
                         <div className='container'>
                             <div className='row'>
                                 <div className='d-flex justify-content-center'>
-                                    <Form setMainState={setMainState} data={props.query}/> 
+                                    <Form setMainState={setMainState}/> 
                                 </div>
                             </div>
                             <div className='row d-flex justify-content-around Footer-div'>
@@ -43,7 +43,7 @@ function Main(props){
                         <div className='container'>
                             <div className='row'>
                                 <div className='d-flex justify-content-center'>
-                                    <Form setMainState={setMainState} data={props.query}/> 
+                                    <Form setMainState={setMainState}/> 
                                 </div>
                             </div>
                             <div className='row d-flex justify-content-around Footer-div'>

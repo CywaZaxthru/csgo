@@ -1,21 +1,14 @@
 import Main from './Main';
+import { Route, Routes} from "react-router-dom"
 
 function App(){
-        if(window.location.pathname === "/answer"){
-
-            let search = window.location.search.replace("?account=", "")
-            return(
-                <div id ="box">
-                    <Main query={search}/>
-                </div>
-            )
-        } else{
             return(
                 <div id="box">
-                    <Main />
+                    <Routes>
+                        <Route path="*" element={<Main />}/>
+                    </Routes>
                 </div>
             )
-        }
 }
 
 export default App;

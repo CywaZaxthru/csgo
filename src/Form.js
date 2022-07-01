@@ -1,16 +1,17 @@
+import { isValidInputTimeValue } from '@testing-library/user-event/dist/utils';
 import { useState } from 'react';
+import {Link, useResolvedPath} from "react-router-dom"
+
 function Form(props){
     const initialState = "";
     const [text, setText] = useState(initialState);
-
     
-    if(props.data !== undefined){
-        Submitfunction(props.data)
-    }
+    
 
     async function Submitfunction(account){
         let id = cutData(account)
         let userData = await requestData(id);
+        setText("")
         props.setMainState(userData)
     }
 
@@ -47,14 +48,25 @@ function Form(props){
                             }} value={text} className="rounded-pill rounded-4"></input>
                         </div>
                         <div className='col-auto text-end form-group mb-3' id="button-div">
-                            <a href={`./answer?account=${text}`} className='search-link'>
-                                <div id="submit" className='rounded-pill rounded-4 button d-flex justify-content-center align-items-center'><i class="fa-solid fa-magnifying-glass"></i></div>
-                            </a>
+                            <LINK  to={`./answer?account=${text}`} />
                         </div>
                     </fieldset>
             </div>   
         </>
     )
+
+    function LINK({to}){
+        const resolvedPath = useResolvedPath(to)
+        let input = resolvedPath.search.replace("?account=", "")
+        if(input.length > 0){
+            Submitfunction(input)
+        }
+        return(
+            <Link to={to} className='search-link'>
+                <div id="submit" className='rounded-pill rounded-4 button d-flex justify-content-center align-items-center'><i class="fa-solid fa-magnifying-glass"></i></div>
+            </Link>
+        )
+    }
 }
 
 export default Form;
