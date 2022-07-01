@@ -32,19 +32,21 @@ function Form(props){
         props.setMainState(userData)
     }
     return(
-        <form onSubmit={(e) => Submitfunction(e)} className="d-flex align-items-center">
-                <fieldset className='d-flex align-items-center'>
-                    <div className='col-sm form-group mb-3'>
-                        <label htmlFor="url-input"></label> 
-                        <input placeholder="Steam ID 64/Steam Profile URL/Steam ID URL" type="text" id="url-input" name="account" onChange={(e) => {
-                        setText(e.target.value)
-                        }} value={text} className="rounded-pill rounded-4"></input>
-                    </div>
-                    <div className='col-auto text-end form-group mb-3' id="button-div">
-                        <button type="submit" id="submit" className='rounded-pill rounded-4'><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
-                </fieldset>
-        </form>
+        <>
+            <form onSubmit={(e) => Submitfunction(e)} className="d-flex align-items-center">
+                    <fieldset className='d-flex align-items-center'>
+                        <div className='col-sm form-group mb-3'>
+                            <label htmlFor="url-input"></label> 
+                            <input placeholder="Steam ID 64/Steam Profile URL/Steam ID URL" type="text" id="url-input" name="account" onChange={(e) => {
+                            setText(e.target.value)
+                            }} value={text} className="rounded-pill rounded-4"></input>
+                        </div>
+                        <div className='col-auto text-end form-group mb-3' id="button-div">
+                            <button type="submit" id="submit" className='rounded-pill rounded-4'><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </fieldset>
+            </form>
+        </>
     )
 }
 

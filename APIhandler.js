@@ -29,7 +29,7 @@ async function APIcaller(ID){
         } 
         catch(err){
             user.Esportal = {}
-            user.Esportal.Error = [["Couldn't get Esportal Data", err]]
+            user.Esportal.Error = [["No Profile Found", err]]
         }
     }
     return user
