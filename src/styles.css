@@ -38,15 +38,15 @@ img{
 }
 
 h1{
-    color: rgb(161, 150, 150);
+    color: white;
     font-weight: 500;
 }
-
 
 
 input{
     height: 36px;
     text-align: center;
+    color: white;
     background-color: rgba(37, 29, 29, 0.8);
     border:0;
     box-shadow: 1px 1px 1px black;
@@ -123,7 +123,7 @@ span{
 }
 
 .link{
-    width: 50px;
+    width: 30px;
     position: relative;
     right: 12px;
 }
@@ -134,17 +134,27 @@ span{
 
 .Footer-div{
     width:470px;
-    margin: auto
+    margin: auto;
+    position: relative;
+    bottom: 0px;
 }
 
 #twitter{
-    width: 55px;
+    width: 30px;
 }
 
 .main-h1{
-    color: black
+    color: white
 }
 
 .search-link{
     text-decoration: none;
+}
+
+.absolute-div{
+    position:absolute;
+    bottom: 0px;
+    height: 50px;
+    left: 0;
+    width: 100vw;
 }

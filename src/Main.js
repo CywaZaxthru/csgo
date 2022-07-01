@@ -19,8 +19,10 @@ function Main(){
                                     <Form setMainState={setMainState}/> 
                                 </div>
                             </div>
-                            <div className='row d-flex justify-content-around Footer-div'>
-                                <Footer />
+                            <div className='absolute-div'>
+                                <div className='row d-flex justify-content-around Footer-div'>
+                                    <Footer />
+                                </div>
                             </div>
                         </div>
                         <div className='d-flex flex-column justify-content-center' id="data-div">
@@ -46,8 +48,10 @@ function Main(){
                                     <Form setMainState={setMainState}/> 
                                 </div>
                             </div>
-                            <div className='row d-flex justify-content-around Footer-div'>
-                                <Footer />
+                            <div className='absolute-div'>
+                                <div className='row d-flex justify-content-around Footer-div'>
+                                    <Footer />
+                                </div>
                             </div>
                         </div>
                     </div>

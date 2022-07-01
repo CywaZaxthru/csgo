@@ -1,11 +1,14 @@
-import { isValidInputTimeValue } from '@testing-library/user-event/dist/utils';
 import { useState } from 'react';
 import {Link, useResolvedPath} from "react-router-dom"
 
 function Form(props){
     const initialState = "";
     const [text, setText] = useState(initialState);
-    
+
+    if(window.location.search !== ""){
+        let search = window.location.search.replace("?account=", "")
+        Submitfunction(search)
+    }
     
 
     async function Submitfunction(account){
