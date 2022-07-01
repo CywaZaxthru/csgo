@@ -29,12 +29,7 @@ function Form(props){
         let id = cutData(text)
         let userData = await requestData(id);
         setText("");
-        if(userData.Error){
-            let errors = userData.Error.map(element => element.meaning)
-            props.setMainState(["ERROR", errors])
-        } else{
-            props.setMainState(userData)
-        }
+        props.setMainState(userData)
     }
     return(
         <form onSubmit={(e) => Submitfunction(e)} className="d-flex align-items-center">

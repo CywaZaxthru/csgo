@@ -4,14 +4,31 @@ const fetch = require('node-fetch');
 
 async function callSteamAPI(id){
     let steam = {};
+    steam.Error = []
     if(!/^[0-9]+$/.test(id)){
-        steam.ID64 = await getSteamId(id)
+        try{
+            steam.ID64 = await getSteamId(id)
+            steam.ID32 = Number(steam.ID64.substr(-16,16)) - 6561197960265728
+        }
+        catch(err){
+            steam.Error.push(["Couldn't get ID64", err])
+        }
     } else{
         steam.ID64 = id;
+        steam.ID32 = Number(steam.ID64.substr(-16,16)) - 6561197960265728
     }
-    steam.ID32 = Number(steam.ID64.substr(-16,16)) - 6561197960265728
-    Object.assign(steam, await getStats(steam.ID64))
-    Object.assign(steam, await getDate(steam.ID64))
+    try{
+        Object.assign(steam, await getStats(steam.ID64))
+    }
+    catch(err){
+        steam.Error.push(["Couldn't get Steam Data", err])
+    }
+    try{
+        Object.assign(steam, await getDate(steam.ID64))
+    }
+    catch(err){
+        steam.Error.push(["Couldn't get Steam Creation Date", err])
+    }
     return steam
 }
 

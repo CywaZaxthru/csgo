@@ -8,42 +8,29 @@ const { useSyncExternalStore } = require('react');
 
 async function APIcaller(ID){
     const user = {}
-    try {
-        user.Steam  = await steam.call(ID)
+    user.Steam  = await steam.call(ID)
+    if(!user.Steam.ID64){
+        user.Faceit = [["Couldn't get Faceit Data", "No ID 64"]]
+        user.Esportal = [["Couldn't get Esportal Data", ["No ID 64"]]]
     }
-    catch(err){
-        user.Error = []
-        user.Error.push({
-            APIresponse: err,
-            meaning: "Couldn't get Steam Data or wrong input"
-        })
-        return user
-    }
-    try{
-        user.Faceit = await faceit.call(user.Steam.ID64)
+    user.Faceit = await faceit.call(user.Steam.ID64)
+    if(!user.Faceit.SteamName){
+        user.Steam.Error.push(["Couldn't get Steam Name", ""])
+    } else{
         user.Steam.name = user.Faceit.SteamName;
-        delete user.Faceit.SteamName
     }
-    catch(err){
-        if(!user.Error){
-            user.Error = []
+    if(!user.Steam.ID32){
+        user.Steam.Error.push(["Couldn't get Steam ID 32", ""])
+        user.Esportal = {}
+        user.Esportal.Error = [["Couldn't get Esportal Data", "No ID 32"]]
+    } else{
+        try{
+            user.Esportal = await esportal.call(user.Steam.ID32)
+        } 
+        catch(err){
+            user.Esportal = {}
+            user.Esportal.Error = [["Couldn't get Esportal Data", err]]
         }
-        user.Error.push({
-            APIresponse: err,
-            meaning: "Couldn't reach Faceit API or wrong input"
-        })
-    }
-    try{
-        user.Esportal = await esportal.call(user.Steam.ID32)
-    }
-    catch(err){
-        if(!user.Error){
-            user.Error = []
-        }
-        user.Error.push({
-            APIresponse: err,
-            meaning: "Couldn't reach Esportal API or wrong input"
-        })
     }
     return user
 };

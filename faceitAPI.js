@@ -3,14 +3,26 @@ const fetch = require('node-fetch');
 
 async function callFaceitAPI(id) {
     const KEY = process.env.Faceit_API_KEY;
+    let faceit = {}
+    faceit.Error = []
     let configuration = {
         method: "GET",
         headers: {
             "Authorization": "Bearer " + KEY
         }
     }
-    let faceit = await callPlayers(id, configuration)
-    Object.assign(faceit, await callStats(faceit["player_id"], configuration))
+    try{
+        faceit = await callPlayers(id, configuration)
+    }
+    catch(err){
+        faceit.Error.push(["Couldn't get Account Data", err])
+    }
+    try{
+        Object.assign(faceit, await callStats(faceit["player_id"], configuration))
+    }
+    catch(err){
+        faceit.Error.push(["Couldn't get Faceit Stats", err])
+    }
     return faceit
 }
 

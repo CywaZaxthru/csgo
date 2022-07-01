@@ -1,32 +1,13 @@
 import './styles.css'
 import Form from './Form';
 import Databox from './Databox';
-import Error from './Error';
 import { useState } from 'react';
 
 function Main(){
-    const initialState = []
+    const initialState =[];
     const [mainState, setMainState] = useState(initialState);
 
-    if(mainState[0] === "ERROR"){
-      return(
-        <main  className='d-xl-flex justify-content-xl-center'>
-            <div>
-                <h1 className='text-center'>Counterstrike Player Finder</h1>
-                <div className='container'>
-                        <div className='row'>
-                        <div className='d-flex justify-content-center'>
-                                <Form setMainState={setMainState}/> 
-                            </div>
-                        </div>
-                    </div>
-                <div>
-                    <Error errors={mainState[1]}/>
-                </div>
-            </div>
-        </main>
-      )
-    }else if(Object.keys(mainState).length > 0){
+    if(Object.keys(mainState).length > 0){
         return(
             <>
                 <main className='d-xl-flex justify-content-xl-center align-items-center'>
