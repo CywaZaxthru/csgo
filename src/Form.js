@@ -9,13 +9,14 @@ function Form(props){
         let search = window.location.search.replace("?account=", "")
         Submitfunction(search)
     }
-    
 
     async function Submitfunction(account){
         let id = cutData(account)
-        let userData = await requestData(id);
-        setText("")
-        props.setMainState(userData)
+        if(props.oldstate !== id){
+            let userData = await requestData(id);
+            setText("")
+            props.setMainState(userData)
+        }
     }
 
     async function requestData(userId){
@@ -60,15 +61,20 @@ function Form(props){
 
     function LINK({to}){
         const resolvedPath = useResolvedPath(to)
+        return(
+            <Link to={to} className='search-link'>
+                <div id="submit" onClick={() => {
+                    Submit()
+                }} className='rounded-pill rounded-4 button d-flex justify-content-center align-items-center'><i class="fa-solid fa-magnifying-glass"></i></div>
+            </Link>
+        )
+
+        function Submit(){
         let input = resolvedPath.search.replace("?account=", "")
         if(input.length > 0){
             Submitfunction(input)
         }
-        return(
-            <Link to={to} className='search-link'>
-                <div id="submit" className='rounded-pill rounded-4 button d-flex justify-content-center align-items-center'><i class="fa-solid fa-magnifying-glass"></i></div>
-            </Link>
-        )
+        }
     }
 }
 

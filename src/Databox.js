@@ -1,7 +1,9 @@
 import DataTable from './DataTable'
 
 function Databox(props){
-    const keys = Object.keys(props.data)
+    let usefulData = props.data
+    delete usefulData.query
+    const keys = Object.keys(usefulData)
     return(
         keys.map((element) => {
             return(

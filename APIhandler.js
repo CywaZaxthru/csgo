@@ -9,6 +9,7 @@ const { useSyncExternalStore } = require('react');
 async function APIcaller(ID){
 
     const user = {}
+    user.query = ID;
     user.Steam  = await steam.call(ID)
     if(!user.Steam.ID64){
         user.Faceit = [["Couldn't get Faceit Data", "No ID 64"]]

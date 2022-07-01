@@ -16,7 +16,7 @@ function Main(){
                         <div className='container'>
                             <div className='row'>
                                 <div className='d-flex justify-content-center'>
-                                    <Form setMainState={setMainState}/> 
+                                    <Form setMainState={setMainState} oldstate={mainState.query}/> 
                                 </div>
                             </div>
                             <div className='absolute-div'>
