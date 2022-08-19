@@ -4,30 +4,45 @@ import Steam from './Steam'
 
 function DataTable(props){
     if(props.title === "Faceit"){
-        return(
-            <>
-                <h1 className='dataTable-head text-center'>Faceit</h1>
-                <br />
-                <Faceit data={props.dataset}/>
-            </>
-        )
+                if(props.height !== 400){
+                    return(
+                        <Faceit data={props.dataset} height={props.height}/>
+                    )
+                } else{
+                    return(
+                    <>
+                        <h1 className='dataTable-head text-center'>Faceit</h1>
+                        <Faceit data={props.dataset} faceit={props.faceit}/>
+                    </>
+                    )
+                }
+           
     } else if(props.title === "Esportal"){
+       if(props.height !== 400){
+        return(
+            <Esportal data={props.dataset} height={props.height}/>
+        )
+       } else{
         return(
             <>
                 <h1 className='dataTable-head text-center'>Esportal</h1>
-                <br />
-                <br />
-                <Esportal data={props.dataset}/>
+                <Esportal data={props.dataset} esportal={props.esportal}/>
             </>
         )
+       }
     } else if(props.title === "Steam"){
-        return(
+        if(props.height !== 400){
+            return(
+                <Steam data={props.dataset} height={props.height}/>
+            )
+        } else{
+            return(
             <>
                 <h1 className='dataTable-head text-center'>Matchmaking</h1>
-                <br />
-                <Steam data={props.dataset}/>
+                <Steam data={props.dataset} matchmaking={props.matchmaking}/>
             </>
-        )
+            )
+        }
     }
 }
 

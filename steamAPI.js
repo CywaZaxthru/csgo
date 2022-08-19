@@ -6,12 +6,26 @@ async function callSteamAPI(id){
     let steam = {};
     steam.Error = []
     if(!/^[0-9]+$/.test(id)){
-        try{
-            steam.ID64 = await getSteamId(id)
-            steam.ID32 = Number(steam.ID64.substr(-16,16)) - 6561197960265728
-        }
-        catch(err){
-            steam.Error.push(["Couldn't get ID64", err])
+        if(id.includes("STEAM")){
+            try{
+                id = id.split(":");
+                let a = id[1];
+                let b = id[2]
+                steam.ID64 = BigInt(76561197960265728) + BigInt(parseInt(a)) +BigInt(2*b);
+                steam.ID64 = steam.ID64.toString()
+                steam.ID32 = Number(steam.ID64.substr(-16,16)) - 6561197960265728
+            }
+            catch(err){
+                steam.Error.push(["Couldn't process ID", err])
+            }
+        } else{
+            try{
+                steam.ID64 = await getSteamId(id)
+                steam.ID32 = Number(steam.ID64.substr(-16,16)) - 6561197960265728
+            }
+            catch(err){
+                steam.Error.push(["Couldn't get ID64", err])
+            }
         }
     } else{
         steam.ID64 = id;

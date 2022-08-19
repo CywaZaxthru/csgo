@@ -32,7 +32,6 @@ img{
 #box{
     background-image: url('../public/Backgound/background.jpg');
     background-repeat: no-repeat;
-    height: 100vh;
     background-size: cover
 
 }
@@ -152,9 +151,25 @@ span{
 }
 
 .absolute-div{
-    position:absolute;
+    position: absolute;
+    padding-top: 10px;
     bottom: 0px;
     height: 50px;
     left: 0;
     width: 100vw;
+}
+
+#faceit{
+    padding-top: 5px;
+    height: 100%; 
+}
+
+#matchmaking{
+    padding-top: 5px;
+    height: 100%
+}
+
+#esportal{
+    padding-top: 10px;
+    height: 100%
 }

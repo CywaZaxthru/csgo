@@ -6,8 +6,6 @@ const PORT = process.env.PORT || 4000;
 
 const app = express();
 
-app.set('view engine', 'ejs')
-
 app.use(express.static(path.join(__dirname, 'build')));
 
 const server = app.listen(PORT, () => {
@@ -20,8 +18,9 @@ app.get('/', (request, response) => {
 });
 
 app.get('/api', async (request, response) => {
-    let answer = await APIhandler.caller(request.query.account);
-    response.send(answer)
+    let input = request.query.account
+    let output = await APIhandler.caller(input)
+    response.send(output)    
 })
 
 app.get('/answer', (request, response) => {
