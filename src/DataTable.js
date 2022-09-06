@@ -11,7 +11,6 @@ function DataTable(props){
                 } else{
                     return(
                     <>
-                        <h1 className='dataTable-head text-center'>Faceit</h1>
                         <Faceit data={props.dataset} faceit={props.faceit}/>
                     </>
                     )
@@ -25,7 +24,6 @@ function DataTable(props){
        } else{
         return(
             <>
-                <h1 className='dataTable-head text-center'>Esportal</h1>
                 <Esportal data={props.dataset} esportal={props.esportal}/>
             </>
         )
@@ -38,7 +36,6 @@ function DataTable(props){
         } else{
             return(
             <>
-                <h1 className='dataTable-head text-center'>Matchmaking</h1>
                 <Steam data={props.dataset} matchmaking={props.matchmaking}/>
             </>
             )
