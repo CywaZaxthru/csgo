@@ -27,7 +27,11 @@ function Main(){
                                                 if(index !== mainState.length-1){
                                                     return(
                                                         <div className='row'>
-                                                            <div className='d-flex justify-content-evenly'>
+                                                            <div className='d-flex justify-content-evenly align-items-center'>
+                                                                <div>
+                                                                    <div className='d-flex justify-content-center whiteText'> {element.Matchmaking.name} </div>
+                                                                    <img src={element.Matchmaking.pb} className="multiSearchPic"></img>
+                                                                </div>
                                                                 <Databox data={element}  height={300}/>
                                                             </div>
                                                         </div>
@@ -75,7 +79,6 @@ function Main(){
             </>
         )
     }else{
-        console.log("test")
         return(
             <>
                 <main className='d-xl-flex justify-content-xl-center align-items-xl-center'>

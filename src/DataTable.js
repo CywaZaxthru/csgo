@@ -30,7 +30,7 @@ function DataTable(props){
             </>
         )
        }
-    } else if(props.title === "Steam"){
+    } else if(props.title === "Matchmaking"){
         if(props.height !== 400){
             return(
                 <Steam data={props.dataset} height={props.height}/>
