@@ -173,3 +173,17 @@ span{
     padding-top: 10px;
     height: 100%
 }
+
+#matchmakingIMG{
+    width: 50px;
+}
+
+.multiSearchPic{
+    height: 184px;
+    width: 184px;
+    padding-left: 20px;
+}
+
+.whiteText{
+    color: white;
+}

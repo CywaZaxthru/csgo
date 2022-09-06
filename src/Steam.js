@@ -3,6 +3,10 @@ function Steam(props){
     let classname = "stats";
     let style
     let styleI
+    let styleP = {
+        width: props.height/10
+    }
+    
     if(props.height !== 400){
         style = {
             "line-height": 1,
@@ -11,16 +15,21 @@ function Steam(props){
     }
     if(props.matchmaking){
         styleI={
-            "padding-bottom": 50
+            "padding-bottom": 40
         }
     }
     
     if(!props.data.Error[0]){
         return(
             <div id="matchmaking" style={styleI} className="d-flex flex-column justify-content-around data-div">
+                <div className="d-flex justify-content-center">
+                    <h2 className="whiteText">Matchmaking</h2>
+                </div>
                 <p style={style} className={classname}>Profile: <span><a href={profileLink} target="_blank">{props.data.name}</a></span></p>
-                <p style={style} className={classname}>Headshot Rate: {Math.round(props.data["headshot_rate"]*100) + "%"}</p>
-                <p style={style} className={classname}>Winrate: <span>{Math.round(props.data.wr * 100) + "%"}</span></p>
+                <p style={style} className={classname}>Competitive Wins: {props.data.compWins}</p>
+                <p style={style} className={classname}>Rank: <img id="matchmakingIMG" src={props.data.rank}></img></p>
+                <p style={style} className={classname}>Headshot Rate: {props.data.headshot_rate}</p>
+                <p style={style} className={classname}>Winrate: <span>{props.data.wr}</span></p>
                 <p style={style} className={classname}>Matches: <span>{props.data.matches}</span></p>
                 <p style={style} className={classname}>Average KD: <span>{props.data.kd}</span></p>
                 <p style={style} className={classname}>Average Frags: <span>{props.data.frags}</span></p>

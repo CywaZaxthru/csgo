@@ -19,7 +19,7 @@ app.get('/', (request, response) => {
 
 app.get('/api', async (request, response) => {
     let input = request.query.account
-    let output = await APIhandler.caller(input)
+    let output = await APIhandler.caller(input);
     response.send(output)    
 })
 

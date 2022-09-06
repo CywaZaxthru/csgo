@@ -31,6 +31,9 @@ function Esportal(props){
     if(!props.data.Error){
         return(
             <div id="esportal" style={style} className="d-flex flex-column justify-content-around">
+                <div className="d-flex justify-content-center">
+                    <h2 className="whiteText">Esportal</h2>
+                </div>
                 <p style={styleP} className="stats">Profile: <a href={profileLink} target="_blank">{props.data.username}</a></p>
                 <p style={styleP} className="stats">Elo: {props.data.elo} <img style={styleI} src={imagePath} alt="Esportal Skill Level"></img></p>
                 <p style={styleP} className="stats">Headshort Rate: {Math.round(props.data["headshot_rate"] * 100) + "%"}</p>

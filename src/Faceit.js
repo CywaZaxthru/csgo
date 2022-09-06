@@ -16,6 +16,9 @@ function Faceit(props){
     if(!props.data.Error){
         return(
             <div id="faceit" style={style} className="d-flex flex-column justify-content-around">
+                <div className="d-flex justify-content-center">
+                    <h2 className="whiteText">Faceit</h2>
+                </div>
                 <p style={styleP} className="stats">Profile: <a href={props.data["faceit_url"]} target="_blank">{props.data.nickname}</a></p>
                 <p style={styleP} className="stats">Elo: {props.data["faceit_elo"]} <img style={styleI} src={imagePath} alt="Faceit Skill Level"></img></p>
                 <p style={styleP} className="stats">Headshot Rate: {props.data["headshot_rate"] + "%"}</p>
